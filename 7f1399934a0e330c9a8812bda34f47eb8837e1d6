@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88cefe01_7e0328c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2025-09-11T20:53:39Z",
+      "side": 1,
+      "message": "1. Breaking face detection in camera or for ParanoidSense?",
+      "revId": "7f1399934a0e330c9a8812bda34f47eb8837e1d6",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    }
+  ]
+}
