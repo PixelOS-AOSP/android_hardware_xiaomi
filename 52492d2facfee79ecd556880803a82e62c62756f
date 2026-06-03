@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e11b40_898fefb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000019
+      },
+      "writtenOn": "2026-06-03T07:58:12Z",
+      "side": 1,
+      "message": "if possible please submit via los crowdin",
+      "revId": "52492d2facfee79ecd556880803a82e62c62756f",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    }
+  ]
+}
