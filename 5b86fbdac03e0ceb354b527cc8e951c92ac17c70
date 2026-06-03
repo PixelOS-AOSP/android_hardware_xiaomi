@@ -16,6 +16,24 @@
       "message": "to the whole chain.\n\nrather do merge instead.",
       "revId": "5b86fbdac03e0ceb354b527cc8e951c92ac17c70",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4c95c7_93e01ccd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000019
+      },
+      "writtenOn": "2026-06-03T07:59:26Z",
+      "side": 1,
+      "message": "DSPVolumeSynchronizer stuff is not hw/xioami@lineage",
+      "parentUuid": "2d9edfd6_5ba6745f",
+      "revId": "5b86fbdac03e0ceb354b527cc8e951c92ac17c70",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ]
 }
