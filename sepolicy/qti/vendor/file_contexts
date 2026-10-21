@@ -1,0 +1,4 @@
+# Face unlock
+/data/vendor/face(/.*)?                                                            u:object_r:face_vendor_data_file:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.face-service\.xiaomi u:object_r:hal_xiaomi_face_exec:s0
+/(vendor|system/vendor)/etc/faceunlock(/.*)?                                       u:object_r:vendor_face_resources_file:s0

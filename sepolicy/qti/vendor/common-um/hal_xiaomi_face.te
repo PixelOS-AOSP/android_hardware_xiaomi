@@ -1,0 +1,2 @@
+allow hal_xiaomi_face vendor_dmabuf_display_heap_device:chr_file r_file_perms;
+allow hal_xiaomi_face vendor_dmabuf_system_heap_device:chr_file r_file_perms;

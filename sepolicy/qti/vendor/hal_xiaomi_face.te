@@ -1,0 +1,33 @@
+type hal_xiaomi_face, domain;
+binder_use(hal_xiaomi_face)
+
+type hal_xiaomi_face_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_xiaomi_face)
+
+hal_client_domain(hal_xiaomi_face, hal_graphics_allocator)
+hal_server_domain(hal_xiaomi_face, hal_face)
+
+binder_call(cameraserver, hal_xiaomi_face)
+binder_call(hal_xiaomi_face, cameraserver)
+binder_call(hal_xiaomi_face, system_app)
+binder_call(system_app, hal_xiaomi_face)
+
+allow hal_xiaomi_face { hal_graphics_composer surfaceflinger }:fd use;
+
+allow hal_xiaomi_face fwk_camera_service:service_manager find;
+
+allow hal_xiaomi_face self:process execmem;
+
+allow hal_xiaomi_face dmabuf_system_heap_device:chr_file r_file_perms;
+allow hal_xiaomi_face gpu_device:chr_file rw_file_perms;
+allow hal_xiaomi_face ion_device:chr_file rw_file_perms;
+
+allow hal_xiaomi_face face_vendor_data_file:dir create_dir_perms;
+allow hal_xiaomi_face face_vendor_data_file:file create_file_perms;
+
+allow hal_xiaomi_face vendor_face_resources_file:dir r_dir_perms;
+allow hal_xiaomi_face vendor_face_resources_file:file { r_file_perms map execute };
+
+r_dir_file(hal_xiaomi_face, vendor_sysfs_kgsl)
+
+get_prop(hal_xiaomi_face, camera_config_prop)
