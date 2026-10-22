@@ -9,6 +9,7 @@
 
 #include <android-base/logging.h>
 #include <dlfcn.h>
+#include <unistd.h>
 #include <ziparchive/zip_archive.h>
 
 #include <algorithm>
@@ -24,7 +25,8 @@ namespace {
 
 constexpr const char* kCmdline = "com.miui.face";
 constexpr const char* kResources = "/vendor/etc/faceunlock/resources.zip";
-constexpr const char* kLibrary =
+constexpr const char* kVendorLibrary = "/vendor/lib64/libstfaceunlockocl.so";
+constexpr const char* kResourcesLibrary =
         "/vendor/etc/faceunlock/resources.zip!/lib/arm64-v8a/libstfaceunlockocl.so";
 constexpr const char* kDexEntry = "classes.dex";
 constexpr std::string_view kLicenseMarker = "License Product: FaceAuth";
@@ -159,9 +161,11 @@ AuthEngine::~AuthEngine() {
 bool AuthEngine::loadSymbols() {
     if (mLib) return true;
 
-    void* lib = dlopen(kLibrary, RTLD_NOW);
+    // Some stock apps bundle the engine in their APK, others install it as a system library.
+    const char* path = access(kVendorLibrary, F_OK) == 0 ? kVendorLibrary : kResourcesLibrary;
+    void* lib = dlopen(path, RTLD_NOW);
     if (!lib) {
-        LOG(ERROR) << "Failed to load " << kLibrary << ": " << dlerror();
+        LOG(ERROR) << "Failed to load " << path << ": " << dlerror();
         return false;
     }
 
