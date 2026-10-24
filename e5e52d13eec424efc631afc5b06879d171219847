@@ -16,6 +16,23 @@
       "message": "xm_sm8450 works",
       "revId": "e5e52d13eec424efc631afc5b06879d171219847",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c007e6a9_e233a076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2026-10-24T11:36:07Z",
+      "side": 1,
+      "message": "E Surface:\ndequeueBuffer failed (Unknown error 2147483646)\nE Surface:\ndequeueBuffer failed (Function not implemented)",
+      "revId": "e5e52d13eec424efc631afc5b06879d171219847",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ]
 }
