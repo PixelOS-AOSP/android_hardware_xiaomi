@@ -14,6 +14,7 @@
 
 #include <algorithm>
 #include <cstring>
+#include <optional>
 #include <string>
 #include <string_view>
 
@@ -29,11 +30,33 @@ constexpr const char* kVendorLibraries[] = {
         "/vendor/lib64/libstfaceunlockocl.so",
         "/vendor/lib64/libstfaceunlockppl.so",
 };
-constexpr const char* kResourcesLibrary =
-        "/vendor/etc/faceunlock/resources.zip!/lib/arm64-v8a/libstfaceunlockocl.so";
+constexpr const char* kResourcesLibraries[] = {
+        "lib/arm64-v8a/libstfaceunlockocl.so",
+        "lib/arm64-v8a/libstfaceunlockppl.so",
+};
 constexpr const char* kDexEntry = "classes.dex";
 constexpr std::string_view kLicenseMarker = "License Product: FaceAuth";
 constexpr const char* kTemplateDir = "/data/vendor/face/st_auth";
+
+std::optional<std::string> findLibrary() {
+    for (const char* path : kVendorLibraries) {
+        if (access(path, F_OK) == 0) return std::string(path);
+    }
+
+    std::optional<std::string> path;
+    ZipArchiveHandle archive = nullptr;
+    ZipEntry64 entry;
+    if (OpenArchive(kResources, &archive) == 0) {
+        for (const char* entryName : kResourcesLibraries) {
+            if (FindEntry(archive, entryName, &entry) == 0) {
+                path = std::string(kResources) + "!/" + entryName;
+                break;
+            }
+        }
+    }
+    CloseArchive(archive);
+    return path;
+}
 
 bool readEntry(const char* name, std::string* out) {
     ZipArchiveHandle archive = nullptr;
@@ -165,12 +188,15 @@ bool AuthEngine::loadSymbols() {
     if (mLib) return true;
 
     // Some stock apps bundle the engine in their APK, others install it as a system library.
-    auto vendor = std::find_if(std::begin(kVendorLibraries), std::end(kVendorLibraries),
-                               [](const char* path) { return access(path, F_OK) == 0; });
-    const char* path = vendor != std::end(kVendorLibraries) ? *vendor : kResourcesLibrary;
-    void* lib = dlopen(path, RTLD_NOW);
+    std::optional<std::string> path = findLibrary();
+    if (!path) {
+        LOG(ERROR) << "No st_auth library found in vendor or " << kResources;
+        return false;
+    }
+
+    void* lib = dlopen(path->c_str(), RTLD_NOW);
     if (!lib) {
-        LOG(ERROR) << "Failed to load " << path << ": " << dlerror();
+        LOG(ERROR) << "Failed to load " << *path << ": " << dlerror();
         return false;
     }
 
