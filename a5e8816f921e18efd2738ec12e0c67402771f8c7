@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86d4deb_484c7fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000090
+      },
+      "writtenOn": "2026-11-11T19:10:13Z",
+      "side": 1,
+      "message": "Needed for Spes (maybe applicable to other device which only ship libstfaceunlockppl.so too), as this device is not on the official list, its fine if no one wants to merge this yet. I will leave it in gerrit just in case.",
+      "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
