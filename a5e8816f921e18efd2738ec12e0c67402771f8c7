@@ -56,6 +56,30 @@
       },
       "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f844e315_04cebc11",
+        "filename": "aidl/face/AuthEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000090
+      },
+      "writtenOn": "2026-11-16T04:04:09Z",
+      "side": 1,
+      "message": "Instead of picking the first existing file, we can have a system where loadSymbols() can go through each one of these\n\n \"/vendor/lib64/libstfaceunlockocl.so\"\n \"/vendor/lib64/libstfaceunlockppl.so\"\n \"/vendor/etc/faceunlock/resources.zip!/lib/arm64-v8a/libstfaceunlockocl.so\"\n \"/vendor/etc/faceunlock/resources.zip!/lib/arm64-v8a/libstfaceunlockppl.so\"\n\nand then attempt dlopen() too on each one until one successfully gets to load.",
+      "parentUuid": "c79abb00_2a843ae6",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 62
+      },
+      "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ],
   "submitRequirementResults": [
