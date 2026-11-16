@@ -33,6 +33,29 @@
       "message": "What if we introduce a backend abstraction with a small proxy to handle both OpenCL and CPU implementations? Otherwise, we\u0027re going in circles. If Xiaomi switches vendors tomorrow, we\u0027ll end up rewriting the HAL again instead of simply adding another backend.\n\nJust thinking out loud.",
       "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79abb00_2a843ae6",
+        "filename": "aidl/face/AuthEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2026-11-16T00:56:49Z",
+      "side": 1,
+      "message": "Just wondering, what\u0027s the benefit of this change if finding the library doesn\u0027t guarantee it can actually be loaded? If dlopen() fails, we still won\u0027t fall back to the other implementation.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 62
+      },
+      "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ],
   "submitRequirementResults": [
