@@ -16,6 +16,23 @@
       "message": "Needed for Spes (maybe applicable to other device which only ship libstfaceunlockppl.so too), as this device is not on the official list, its fine if no one wants to merge this yet. I will leave it in gerrit just in case.",
       "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10e855d_862d6cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2026-11-16T00:16:10Z",
+      "side": 1,
+      "message": "What if we introduce a backend abstraction with a small proxy to handle both OpenCL and CPU implementations? Otherwise, we\u0027re going in circles. If Xiaomi switches vendors tomorrow, we\u0027ll end up rewriting the HAL again instead of simply adding another backend.\n\nJust thinking out loud.",
+      "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ],
   "submitRequirementResults": [
