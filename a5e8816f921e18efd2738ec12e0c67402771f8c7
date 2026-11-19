@@ -80,6 +80,30 @@
       },
       "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
       "serverId": "58543e18-2196-4633-8043-7787712585ad"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7207bf36_a9560c2b",
+        "filename": "aidl/face/AuthEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2026-11-19T12:05:50Z",
+      "side": 1,
+      "message": "Sounds good! Would be even better with a dlsym() check too 😉",
+      "parentUuid": "f844e315_04cebc11",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 62
+      },
+      "revId": "a5e8816f921e18efd2738ec12e0c67402771f8c7",
+      "serverId": "58543e18-2196-4633-8043-7787712585ad"
     }
   ],
   "submitRequirementResults": [
